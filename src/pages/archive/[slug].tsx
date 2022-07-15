@@ -61,5 +61,7 @@ export async function getServerSideProps({
         results: '',
       },
     };
-  } catch (err) {}
+  } catch (err) {
+    throw new Error('Internal Server Error');
+  }
 }
