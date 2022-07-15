@@ -1,12 +1,6 @@
-import styles from '~/styles/components/Container.css';
-
 interface ContainerProps {
   children: React.ReactNode;
   inner?: boolean;
-}
-
-export function links() {
-  return [{ rel: 'stylesheet', href: styles }];
 }
 
 export function Container({ children, inner }: ContainerProps) {
