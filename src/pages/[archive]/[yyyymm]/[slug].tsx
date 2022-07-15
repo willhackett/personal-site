@@ -1,4 +1,4 @@
-import { PrimaryLayout } from "@layouts/Primary";
+import { PrimaryLayout } from '@layouts/Primary';
 
 export default function Index() {
   const hero = (
