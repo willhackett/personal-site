@@ -12,6 +12,6 @@ export const float = style([
     fontFamily: 'satoshiBold',
   }),
   {
-    fontSize: '1.5rem',
+    fontSize: '1rem',
   },
 ]);

@@ -17,4 +17,8 @@ query HomeViewQuery {
       text
     }
   }
+  textContent(location: "HOMEPAGE") {
+    name
+    text
+  }
 }

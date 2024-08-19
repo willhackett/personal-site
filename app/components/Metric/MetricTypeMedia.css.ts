@@ -12,10 +12,13 @@ export const title = style([
     fontFamily: 'satoshiBold',
   }),
   {
-    fontSize: '1.5rem',
+    fontSize: '1rem',
+    textWrap: 'nowrap',
+    overflowX: 'hidden',
+    maxWidth: '100%',
   },
 ]);
 
 export const artist = style({
-  fontSize: '1rem',
+  fontSize: '0.8rem',
 });

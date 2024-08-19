@@ -43,7 +43,29 @@ export enum MetricName {
 export type Query = {
   __typename?: 'Query';
   metrics: Array<Metric>;
+  textContent: Array<TextContent>;
 };
+
+
+export type QueryTextContentArgs = {
+  location?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TextContent = {
+  __typename?: 'TextContent';
+  location: TextContentLocation;
+  name: Scalars['String']['output'];
+  text: Scalars['String']['output'];
+};
+
+export enum TextContentLocation {
+  Homepage = 'HOMEPAGE'
+}
+
+export enum TextContentName {
+  HomepageHeading = 'HOMEPAGE_HEADING',
+  HomepageTitle = 'HOMEPAGE_TITLE'
+}
 
 export type TextMetric = {
   __typename?: 'TextMetric';
@@ -54,10 +76,10 @@ export type TextMetric = {
 export type HomeViewQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomeViewQueryQuery = { __typename?: 'Query', metrics: Array<{ __typename: 'FloatMetric', float: number, name: MetricName } | { __typename: 'MediaMetric', artist: string, title: string, name: MetricName } | { __typename: 'TextMetric', name: MetricName, text: string }> };
+export type HomeViewQueryQuery = { __typename?: 'Query', metrics: Array<{ __typename: 'FloatMetric', float: number, name: MetricName } | { __typename: 'MediaMetric', artist: string, title: string, name: MetricName } | { __typename: 'TextMetric', name: MetricName, text: string }>, textContent: Array<{ __typename?: 'TextContent', name: string, text: string }> };
 
 
-export const HomeViewQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomeViewQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"metrics"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"FloatMetric"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"float"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"MediaMetric"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"artist"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextMetric"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]}}]}}]} as unknown as DocumentNode<HomeViewQueryQuery, HomeViewQueryQueryVariables>;
+export const HomeViewQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomeViewQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"metrics"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"FloatMetric"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"float"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"MediaMetric"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"artist"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TextMetric"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"textContent"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"location"},"value":{"kind":"StringValue","value":"HOMEPAGE","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]}}]} as unknown as DocumentNode<HomeViewQueryQuery, HomeViewQueryQueryVariables>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string; }
@@ -93,7 +115,29 @@ export enum MetricName {
 export type Query = {
   __typename?: 'Query';
   metrics: Array<Metric>;
+  textContent: Array<TextContent>;
 };
+
+
+export type QueryTextContentArgs = {
+  location?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type TextContent = {
+  __typename?: 'TextContent';
+  location: TextContentLocation;
+  name: Scalars['String']['output'];
+  text: Scalars['String']['output'];
+};
+
+export enum TextContentLocation {
+  Homepage = 'HOMEPAGE'
+}
+
+export enum TextContentName {
+  HomepageHeading = 'HOMEPAGE_HEADING',
+  HomepageTitle = 'HOMEPAGE_TITLE'
+}
 
 export type TextMetric = {
   __typename?: 'TextMetric';
@@ -183,6 +227,9 @@ export type ResolversTypes = {
   Metric: ResolverTypeWrapper<ResolversUnionTypes<ResolversTypes>['Metric']>;
   MetricName: MetricName;
   Query: ResolverTypeWrapper<{}>;
+  TextContent: ResolverTypeWrapper<TextContent>;
+  TextContentLocation: TextContentLocation;
+  TextContentName: TextContentName;
   TextMetric: ResolverTypeWrapper<TextMetric>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
 };
@@ -195,6 +242,7 @@ export type ResolversParentTypes = {
   String: Scalars['String']['output'];
   Metric: ResolversUnionTypes<ResolversParentTypes>['Metric'];
   Query: {};
+  TextContent: TextContent;
   TextMetric: TextMetric;
   Boolean: Scalars['Boolean']['output'];
 };
@@ -218,6 +266,14 @@ export type MetricResolvers<ContextType = any, ParentType extends ResolversParen
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   metrics?: Resolver<Array<ResolversTypes['Metric']>, ParentType, ContextType>;
+  textContent?: Resolver<Array<ResolversTypes['TextContent']>, ParentType, ContextType, Partial<QueryTextContentArgs>>;
+};
+
+export type TextContentResolvers<ContextType = any, ParentType extends ResolversParentTypes['TextContent'] = ResolversParentTypes['TextContent']> = {
+  location?: Resolver<ResolversTypes['TextContentLocation'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  text?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type TextMetricResolvers<ContextType = any, ParentType extends ResolversParentTypes['TextMetric'] = ResolversParentTypes['TextMetric']> = {
@@ -231,6 +287,7 @@ export type Resolvers<ContextType = any> = {
   MediaMetric?: MediaMetricResolvers<ContextType>;
   Metric?: MetricResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  TextContent?: TextContentResolvers<ContextType>;
   TextMetric?: TextMetricResolvers<ContextType>;
 };
 

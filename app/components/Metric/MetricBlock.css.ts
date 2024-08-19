@@ -4,7 +4,6 @@ export const root = style({
   display: 'flex',
   gap: '1rem',
   alignItems: 'center',
-  flex: 1,
 });
 
 export const icon = style({

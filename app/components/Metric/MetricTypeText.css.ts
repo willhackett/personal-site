@@ -12,6 +12,6 @@ export const text = style([
     fontFamily: 'satoshiBlack',
   }),
   {
-    fontSize: '1.5rem',
+    fontSize: '1rem',
   },
 ]);

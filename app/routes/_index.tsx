@@ -25,12 +25,12 @@ export async function loader({
 }
 
 export default function Index() {
-  const { metrics } = useLoaderData<typeof loader>();
+  const { metrics, textContent } = useLoaderData<typeof loader>();
 
   return (
     <MetricsProvider value={{ metrics }}>
       <Container>
-        <HomeView />
+        <HomeView textContent={textContent} />
       </Container>
     </MetricsProvider>
   );
