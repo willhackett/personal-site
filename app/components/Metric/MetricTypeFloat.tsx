@@ -16,7 +16,7 @@ export function MetricTypeFloat({
   return (
     <div className={css.root}>
       <MetricNameLabel name={name} />
-      <span className={css.float}>{float}</span>
+      <span className={css.float}>{Math.round(float)}</span>
       <MetricLabel name={name} />
     </div>
   );

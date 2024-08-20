@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "query HomeViewQuery {\n  metrics {\n    ... on FloatMetric {\n      __typename\n      float\n      name\n    }\n    ... on MediaMetric {\n      __typename\n      artist\n      title\n      name\n    }\n    ... on TextMetric {\n      __typename\n      name\n      text\n    }\n  }\n  textContent(location: \"HOMEPAGE\") {\n    name\n    text\n  }\n}": types.HomeViewQueryDocument,
+    "query HomeViewQuery {\n  metrics {\n    ... on FloatMetric {\n      __typename\n      float\n      name\n    }\n    ... on MediaMetric {\n      __typename\n      artist\n      title\n      name\n    }\n    ... on TextMetric {\n      __typename\n      name\n      text\n    }\n  }\n  textContent(location: \"HOMEPAGE\") {\n    name\n    text\n  }\n  notes {\n    date\n    permalink\n    section\n    summary\n    title\n  }\n}": types.HomeViewQueryDocument,
 };
 
 /**
@@ -33,7 +33,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query HomeViewQuery {\n  metrics {\n    ... on FloatMetric {\n      __typename\n      float\n      name\n    }\n    ... on MediaMetric {\n      __typename\n      artist\n      title\n      name\n    }\n    ... on TextMetric {\n      __typename\n      name\n      text\n    }\n  }\n  textContent(location: \"HOMEPAGE\") {\n    name\n    text\n  }\n}"): (typeof documents)["query HomeViewQuery {\n  metrics {\n    ... on FloatMetric {\n      __typename\n      float\n      name\n    }\n    ... on MediaMetric {\n      __typename\n      artist\n      title\n      name\n    }\n    ... on TextMetric {\n      __typename\n      name\n      text\n    }\n  }\n  textContent(location: \"HOMEPAGE\") {\n    name\n    text\n  }\n}"];
+export function graphql(source: "query HomeViewQuery {\n  metrics {\n    ... on FloatMetric {\n      __typename\n      float\n      name\n    }\n    ... on MediaMetric {\n      __typename\n      artist\n      title\n      name\n    }\n    ... on TextMetric {\n      __typename\n      name\n      text\n    }\n  }\n  textContent(location: \"HOMEPAGE\") {\n    name\n    text\n  }\n  notes {\n    date\n    permalink\n    section\n    summary\n    title\n  }\n}"): (typeof documents)["query HomeViewQuery {\n  metrics {\n    ... on FloatMetric {\n      __typename\n      float\n      name\n    }\n    ... on MediaMetric {\n      __typename\n      artist\n      title\n      name\n    }\n    ... on TextMetric {\n      __typename\n      name\n      text\n    }\n  }\n  textContent(location: \"HOMEPAGE\") {\n    name\n    text\n  }\n  notes {\n    date\n    permalink\n    section\n    summary\n    title\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

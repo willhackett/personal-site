@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
-import { MetricsProvider } from '~/contexts/metrics';
+import { HomeContextProvider } from '~/contexts/home';
 import { HomeViewQueryDocument, HomeViewQueryQuery } from '~/gql/graphql';
 import { Container } from '~/layouts/Container';
 import { GraphQLService } from '~/service/graphql';
@@ -19,19 +19,19 @@ export const meta: MetaFunction = () => {
 export async function loader({
   context,
 }: LoaderFunctionArgs): Promise<HomeViewQueryQuery> {
-  const { client } = new GraphQLService(context.cloudflare.env.GRAPHQL_URI);
+  const { client } = new GraphQLService(context.cloudflare.env.api);
 
   return await client.request(HomeViewQueryDocument);
 }
 
 export default function Index() {
-  const { metrics, textContent } = useLoaderData<typeof loader>();
+  const context = useLoaderData<typeof loader>();
 
   return (
-    <MetricsProvider value={{ metrics }}>
+    <HomeContextProvider value={context}>
       <Container>
-        <HomeView textContent={textContent} />
+        <HomeView />
       </Container>
-    </MetricsProvider>
+    </HomeContextProvider>
   );
 }

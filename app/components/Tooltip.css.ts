@@ -18,6 +18,10 @@ export const dialog = style([
     marginTop: '3rem',
     borderRadius: '16px',
     fontSize: '1rem',
+    paddingRight: '1rem',
+    paddingLeft: '1rem',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem',
   },
 ]);
 

@@ -21,4 +21,11 @@ query HomeViewQuery {
     name
     text
   }
+  notes {
+    date
+    permalink
+    section
+    summary
+    title
+  }
 }

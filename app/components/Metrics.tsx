@@ -1,4 +1,4 @@
-import { useMetrics } from '~/contexts/metrics';
+import { useHomeContext } from '~/contexts/home';
 import { MetricTypeFloat } from './Metric/MetricTypeFloat';
 import { MetricTypeMedia } from './Metric/MetricTypeMedia';
 import { MetricTypeText } from './Metric/MetricTypeText';
@@ -7,7 +7,7 @@ import { MetricBlock } from './Metric/MetricBlock';
 import * as css from './Metrics.css';
 
 export function Metrics(): JSX.Element {
-  const { metrics } = useMetrics();
+  const { metrics } = useHomeContext();
 
   return (
     <div className={css.root}>

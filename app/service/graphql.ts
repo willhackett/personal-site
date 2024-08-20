@@ -1,9 +1,11 @@
 import { GraphQLClient } from 'graphql-request';
 
 export class GraphQLService {
-  constructor(protected uri: string) {}
+  constructor(protected fetcher: Fetcher) {}
 
   get client() {
-    return new GraphQLClient(this.uri);
+    return new GraphQLClient('https://api.willhackett.com/', {
+      fetcher: this.fetcher,
+    });
   }
 }
