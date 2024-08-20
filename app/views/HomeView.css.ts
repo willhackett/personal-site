@@ -6,8 +6,8 @@ export const container = style({
 });
 
 export const introContainer = style({
-  marginTop: '2.75rem',
-  marginBottom: '2.75rem',
+  marginTop: '4rem',
+  marginBottom: '4rem',
 });
 
 export const introHeading = style([
@@ -16,6 +16,6 @@ export const introHeading = style([
   }),
   {
     fontSize: '1.5rem',
-    lineHeight: '1.75rem',
+    lineHeight: '2.5rem',
   },
 ]);

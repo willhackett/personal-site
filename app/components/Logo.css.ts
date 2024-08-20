@@ -5,3 +5,7 @@ export const root = sprinkles({
   marginTop: 'large',
   marginBottom: 'large',
 });
+
+export const dot = sprinkles({
+  color: 'emerald',
+});
