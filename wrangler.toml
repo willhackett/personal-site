@@ -3,9 +3,9 @@ name = "www"
 compatibility_date = "2024-08-15"
 pages_build_output_dir = "./build/client"
 
+[placement]
+mode = "smart"
+
 services = [
   { binding = "api", service = "willhackett-api" }
 ]
-
-[placement]
-mode = "smart"

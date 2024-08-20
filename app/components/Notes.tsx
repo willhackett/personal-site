@@ -8,9 +8,12 @@ export function Notes(): JSX.Element {
 
   return (
     <div className={css.root}>
-      {notes.map((note) => (
-        <Note key={note.permalink} note={note} />
-      ))}
+      <h2 className={css.heading}>Notes</h2>
+      <div>
+        {notes.map((note) => (
+          <Note key={note.permalink} note={note} />
+        ))}
+      </div>
     </div>
   );
 }
