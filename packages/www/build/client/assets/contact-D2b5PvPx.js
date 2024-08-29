@@ -1,1 +1,0 @@
-import{n as t}from"./components-UlcBZXwz.js";import{H as r,C as n}from"./Header-QFFj6ITS.js";/* empty css                             */function o(){return t.jsx("div",{children:t.jsx(r,{})})}function a(){return t.jsx(n,{children:t.jsx(o,{})})}export{a as default};
