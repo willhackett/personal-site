@@ -4,8 +4,6 @@ import { MetricTypeFloat } from './Metric/MetricTypeFloat';
 import { MetricTypeMedia } from './Metric/MetricTypeMedia';
 import { MetricTypeText } from './Metric/MetricTypeText';
 
-import { Await } from '@remix-run/react';
-import { Suspense } from 'react';
 import {
   FloatMetric,
   MediaMetric,
@@ -42,32 +40,24 @@ export function Metrics(): JSX.Element {
 
   return (
     <div className={css.root}>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Await resolve={metrics}>
-          {(resolvedMetrics) => (
-            <>
-              {resolvedMetrics.sort(sortMetrics).map((metric) => {
-                return (
-                  <MetricBlock key={metric.name} name={metric.name}>
-                    {() => {
-                      switch (metric.__typename) {
-                        case 'FloatMetric':
-                          return <MetricTypeFloat {...metric} />;
-                        case 'MediaMetric':
-                          return <MetricTypeMedia {...metric} />;
-                        case 'TextMetric':
-                          return <MetricTypeText {...metric} />;
-                        default:
-                          return <div />;
-                      }
-                    }}
-                  </MetricBlock>
-                );
-              })}
-            </>
-          )}
-        </Await>
-      </Suspense>
+      {metrics.sort(sortMetrics).map((metric) => {
+        return (
+          <MetricBlock key={metric.name} name={metric.name}>
+            {() => {
+              switch (metric.__typename) {
+                case 'FloatMetric':
+                  return <MetricTypeFloat {...metric} />;
+                case 'MediaMetric':
+                  return <MetricTypeMedia {...metric} />;
+                case 'TextMetric':
+                  return <MetricTypeText {...metric} />;
+                default:
+                  return <div />;
+              }
+            }}
+          </MetricBlock>
+        );
+      })}
     </div>
   );
 }
