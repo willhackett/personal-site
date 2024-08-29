@@ -1,22 +1,31 @@
-# Welcome to Remix + Cloudflare!
+# My personal site
 
-- 📖 [Remix docs](https://remix.run/docs)
-- 📖 [Remix Cloudflare docs](https://remix.run/guides/vite#cloudflare)
+This is a very quick readme for my personal site. I'm sure I'll update it later. (trust me, I won't)
 
-## Development
+## Features
 
-Run the dev server:
+- An API - uses Apollo GraphQL on a Cloudflare Worker
+- A website - uses Remix on Cloudflare Pages
+
+## Setup
+
+1. Install dependencies:
 
 ```sh
-npm run dev
+npm install
 ```
 
-To run Wrangler:
+2. Run
 
 ```sh
-npm run build
 npm run start
 ```
+
+This project uses `pm2` so you can use `npm run start`, `npm run stop` and `npm run logs`.
+
+Local development "usually" runs at: 
+ - www: `http://localhost:5173/`
+ - api: `http://localhost:53063` or sometimes any port it feels like (check logs)
 
 ## Typegen
 
@@ -26,22 +35,8 @@ Generate types for your Cloudflare bindings in `wrangler.toml`:
 npm run typegen
 ```
 
-You will need to rerun typegen whenever you make changes to `wrangler.toml`.
-
-## Deployment
-
-First, build your app for production:
+Generate types for your GraphQL queries in packages/www using:
 
 ```sh
-npm run build
+npm run codegen
 ```
-
-Then, deploy your app to Cloudflare Pages:
-
-```sh
-npm run deploy
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.

@@ -8,7 +8,7 @@ kv_namespaces = [
 ]
 
 services = [
-  { binding = "notes", service = "notes" }
+  { binding = "notes", service = "notes", environment = "production" }
 ]
 
 node_compat = true
