@@ -15,16 +15,6 @@ type IndexPageProps = {
   context: HomeContext;
 };
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: 'New Remix App' },
-    {
-      name: 'description',
-      content: 'Welcome to Remix on Cloudflare!',
-    },
-  ];
-};
-
 export async function loader({ context }: LoaderFunctionArgs) {
   const { client } = new GraphQLService(context.cloudflare.env.api);
 
@@ -40,6 +30,55 @@ export async function loader({ context }: LoaderFunctionArgs) {
     notes,
   });
 }
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const textContent = data?.textContent;
+
+  if (!textContent) {
+    throw new Error('Failed to load text content');
+  }
+
+  const textContentMap = textContent.reduce((acc, { name, text }) => {
+    acc.set(name, text);
+    return acc;
+  }, new Map<string, string>());
+
+  return [
+    { title: textContentMap.get('HOMEPAGE_TITLE') },
+    {
+      name: 'description',
+      content: textContentMap.get('HOMEPAGE_HEADING'),
+    },
+    {
+      name: 'og:title',
+      content: textContentMap.get('HOMEPAGE_TITLE'),
+    },
+    {
+      name: 'og:description',
+      content: textContentMap.get('HOMEPAGE_HEADING'),
+    },
+    {
+      name: 'og:type',
+      content: 'website',
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary',
+    },
+    {
+      name: 'twitter:creator',
+      content: '@willhackett',
+    },
+    {
+      name: 'twitter:title',
+      content: textContentMap.get('HOMEPAGE_TITLE'),
+    },
+    {
+      name: 'twitter:description',
+      content: textContentMap.get('HOMEPAGE_HEADING'),
+    },
+  ];
+};
 
 export default function Index() {
   const { textContent, metrics, notes } = useLoaderData<typeof loader>();
