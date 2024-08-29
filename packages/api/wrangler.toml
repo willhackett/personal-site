@@ -8,7 +8,7 @@ kv_namespaces = [
 ]
 
 services = [
-  { binding = "notes", service = "willhackett-notes" }
+  { binding = "notes", service = "notes" }
 ]
 
 node_compat = true

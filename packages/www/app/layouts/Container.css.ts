@@ -5,7 +5,7 @@ export const root = style([
   sprinkles({
     margin: {
       desktop: 'auto',
-      mobile: 'large',
+      mobile: 'xlarge',
       tablet: 'medium',
     },
   }),

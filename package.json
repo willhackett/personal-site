@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "The monorepo containing a fair chunk of my site",
   "scripts": {
-    "dev": "pm2 start ecosystem.config.js"
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop ecosystem.config.js",
+    "logs": "pm2 logs"
   },
   "workspaces": [
     "packages/*"
