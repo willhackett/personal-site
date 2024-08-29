@@ -18,11 +18,11 @@ type IndexPageProps = {
 export async function loader({ context }: LoaderFunctionArgs) {
   const { client } = new GraphQLService(context.cloudflare.env.api);
 
+  const metrics = client.request(MetricsDocument).then((data) => data.metrics);
+  const notes = client.request(NotesDocument).then((data) => data.notes);
   const textContent = await client
     .request(HomeViewDocument)
     .then((data) => data.textContent);
-  const metrics = client.request(MetricsDocument).then((data) => data.metrics);
-  const notes = client.request(NotesDocument).then((data) => data.notes);
 
   return defer({
     textContent,
@@ -80,6 +80,16 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   ];
 };
 
+export function IndexPage({ context }: IndexPageProps): JSX.Element {
+  return (
+    <HomeContextProvider value={context}>
+      <Container>
+        <HomeView />
+      </Container>
+    </HomeContextProvider>
+  );
+}
+
 export default function Index() {
   const { textContent, metrics, notes } = useLoaderData<typeof loader>();
 
@@ -95,15 +105,5 @@ export default function Index() {
         )}
       </Await>
     </Suspense>
-  );
-}
-
-export function IndexPage({ context }: IndexPageProps) {
-  return (
-    <HomeContextProvider value={context}>
-      <Container>
-        <HomeView />
-      </Container>
-    </HomeContextProvider>
   );
 }

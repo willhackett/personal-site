@@ -8,7 +8,6 @@
     "deploy": "npm run build && wrangler pages deploy",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "wrangler pages dev ./build/client",
     "typecheck": "tsc",
     "typegen": "wrangler types",
     "preview": "npm run build && wrangler pages dev",
@@ -16,15 +15,15 @@
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
-    "@remix-run/cloudflare": "^2.11.1",
-    "@remix-run/cloudflare-pages": "^2.11.1",
-    "@remix-run/react": "^2.11.1",
+    "@remix-run/cloudflare": "^2.11.2",
+    "@remix-run/cloudflare-pages": "^2.11.2",
+    "@remix-run/react": "^2.11.2",
     "graphql": "^16.9.0",
     "graphql-request": "^7.1.0",
     "isbot": "^4.1.0",
     "normalize.css": "^8.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.9.5"
@@ -57,7 +56,7 @@
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1",
-    "wrangler": "^3.57.1"
+    "wrangler": "^3.72.3"
   },
   "engines": {
     "node": ">=20.0.0"
