@@ -9,11 +9,11 @@ type MetricNameLabelProps = {
 export function getMetricNameLabel(name: MetricName): string {
   switch (name) {
     case MetricName.CaloriesBurned:
-      return 'Average calories burned last 7 days';
+      return 'Average calories burned in the last 7 days';
     case MetricName.CurrentCity:
       return 'Current city';
     case MetricName.FavouriteSong:
-      return 'Last song saved to favourites';
+      return 'Favourite song from the last 7 days';
     case MetricName.MilesCycled:
       return 'Cycled miles in the last 7 days';
     case MetricName.GitCommits:
