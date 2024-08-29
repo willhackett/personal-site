@@ -1,10 +1,10 @@
 import { createContext, useContext } from 'react';
-import { HomeViewQueryQuery } from '~/gql/graphql';
+import { HomeViewQuery, MetricsQuery, NotesQuery } from '~/gql/graphql';
 
 export type HomeContext = {
-  metrics: HomeViewQueryQuery['metrics'];
-  textContent: HomeViewQueryQuery['textContent'];
-  notes: HomeViewQueryQuery['notes'];
+  metrics: MetricsQuery['metrics'];
+  textContent: HomeViewQuery['textContent'];
+  notes: NotesQuery['notes'];
 };
 
 const initialState: HomeContext = {

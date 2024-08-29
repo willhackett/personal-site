@@ -1,0 +1,9 @@
+query Notes {
+  notes {
+    date
+    permalink
+    section
+    summary
+    title
+  }
+}

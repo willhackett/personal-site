@@ -1,0 +1,20 @@
+query Metrics {
+  metrics {
+    ... on FloatMetric {
+      __typename
+      float
+      name
+    }
+    ... on MediaMetric {
+      __typename
+      artist
+      title
+      name
+    }
+    ... on TextMetric {
+      __typename
+      name
+      text
+    }
+  }
+}

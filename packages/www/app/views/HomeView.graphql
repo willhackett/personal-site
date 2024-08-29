@@ -1,31 +1,6 @@
-query HomeViewQuery {
-  metrics {
-    ... on FloatMetric {
-      __typename
-      float
-      name
-    }
-    ... on MediaMetric {
-      __typename
-      artist
-      title
-      name
-    }
-    ... on TextMetric {
-      __typename
-      name
-      text
-    }
-  }
+query HomeView {
   textContent(location: "HOMEPAGE") {
     name
     text
-  }
-  notes {
-    date
-    permalink
-    section
-    summary
-    title
   }
 }
