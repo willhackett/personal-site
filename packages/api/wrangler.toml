@@ -1,0 +1,14 @@
+name="api"
+main="src/index.ts"
+
+compatibility_date = "2023-05-17"
+
+kv_namespaces = [
+    { binding = "metric", id = "0d24c5ca83014c70a4a69ce0dde7069b", preview_id = "adad1f492e5f4125928e92297e86ab34" }
+]
+
+services = [
+  { binding = "notes", service = "willhackett-notes" }
+]
+
+node_compat = true

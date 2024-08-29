@@ -1,10 +1,14 @@
+dist
 node_modules
+worker
+package-lock.json
+yarn.lock
+.cargo-ok
 
-/.cache
-/build
+# Output of 'npm pack'
+*.tgz
+.wrangler
+.DS_Store
 .env
 .dev.vars
-
-.wrangler
-
-.DS_Store
+.cache
