@@ -20,7 +20,7 @@ export function MetricLabel({ name }: MetricLabelProps): JSX.Element {
             return 'commits';
           case MetricName.CurrentCity:
             return 'Current city';
-          case MetricName.LastSongPlayed:
+          case MetricName.FavouriteSong:
             return '';
           default:
             return exhaustive(name);

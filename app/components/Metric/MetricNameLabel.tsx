@@ -12,7 +12,7 @@ export function getMetricNameLabel(name: MetricName): string {
       return 'Average calories burned last 7 days';
     case MetricName.CurrentCity:
       return 'Current city';
-    case MetricName.LastSongPlayed:
+    case MetricName.FavouriteSong:
       return 'Last song saved to favourites';
     case MetricName.MilesCycled:
       return 'Cycled miles in the last 7 days';

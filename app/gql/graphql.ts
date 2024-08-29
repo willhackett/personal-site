@@ -47,8 +47,8 @@ export type Metric = FloatMetric | MediaMetric | TextMetric;
 export enum MetricName {
   CaloriesBurned = 'CALORIES_BURNED',
   CurrentCity = 'CURRENT_CITY',
+  FavouriteSong = 'FAVOURITE_SONG',
   GitCommits = 'GIT_COMMITS',
-  LastSongPlayed = 'LAST_SONG_PLAYED',
   MilesCycled = 'MILES_CYCLED'
 }
 
@@ -166,8 +166,8 @@ export type Metric = FloatMetric | MediaMetric | TextMetric;
 export enum MetricName {
   CaloriesBurned = 'CALORIES_BURNED',
   CurrentCity = 'CURRENT_CITY',
+  FavouriteSong = 'FAVOURITE_SONG',
   GitCommits = 'GIT_COMMITS',
-  LastSongPlayed = 'LAST_SONG_PLAYED',
   MilesCycled = 'MILES_CYCLED'
 }
 

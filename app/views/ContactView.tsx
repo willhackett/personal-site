@@ -1,3 +1,9 @@
+import { Header } from '~/components/Header';
+
 export function ContactView(): JSX.Element {
-  return <div>contact page</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }

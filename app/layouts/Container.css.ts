@@ -3,7 +3,11 @@ import { sprinkles } from '~/style/sprinkles.css';
 
 export const root = style([
   sprinkles({
-    margin: 'auto',
+    margin: {
+      desktop: 'auto',
+      mobile: 'large',
+      tablet: 'medium',
+    },
   }),
   {
     maxWidth: '60rem',

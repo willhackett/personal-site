@@ -1,4 +1,3 @@
-import { exhaustive } from '~/util/type';
 import {
   BicycleIcon,
   CalorieIcon,
@@ -7,6 +6,7 @@ import {
   MusicIcon,
 } from '~/components/Icon';
 import { MetricName } from '~/gql/graphql';
+import { exhaustive } from '~/util/type';
 
 type MetricIconProps = {
   name: MetricName;
@@ -20,7 +20,7 @@ export function MetricIcon({ name }: MetricIconProps): JSX.Element {
       return <GitCommitIcon />;
     case MetricName.CurrentCity:
       return <LocationIcon />;
-    case MetricName.LastSongPlayed:
+    case MetricName.FavouriteSong:
       return <MusicIcon />;
     case MetricName.CaloriesBurned:
       return <CalorieIcon />;

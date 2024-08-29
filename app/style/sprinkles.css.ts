@@ -47,6 +47,7 @@ const responsiveProperties = defineProperties({
     paddingBottom: space,
     paddingLeft: space,
     paddingRight: space,
+    flexWrap: ['wrap', 'nowrap'],
     // etc.
   },
   shorthands: {

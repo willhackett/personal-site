@@ -1,7 +1,6 @@
 import { Logo } from './Logo';
 
 import * as css from './Header.css';
-import { Link } from '@remix-run/react';
 
 export function Header(): JSX.Element {
   return (
@@ -9,14 +8,7 @@ export function Header(): JSX.Element {
       <div>
         <Logo />
       </div>
-      <div className={css.links}>
-        <Link to="/now" className={css.a}>
-          Now
-        </Link>
-        <Link to="/contact" className={css.a}>
-          Contact
-        </Link>
-      </div>
+      <div className={css.links}></div>
     </div>
   );
 }
