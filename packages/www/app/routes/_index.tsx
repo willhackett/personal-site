@@ -97,11 +97,16 @@ export default function Index() {
 
   return (
     <Suspense
-      fallback={<IndexPage context={{ textContent, metrics: [], notes: [] }} />}
+      fallback={
+        <IndexPage
+          key="resolved"
+          context={{ textContent, metrics: [], notes: [] }}
+        />
+      }
     >
       <Await resolve={awaitable}>
         {([metrics, notes]) => (
-          <IndexPage context={{ textContent, metrics, notes }} />
+          <IndexPage key="resolved" context={{ textContent, metrics, notes }} />
         )}
       </Await>
     </Suspense>

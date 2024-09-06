@@ -1,15 +1,10 @@
 import { style } from '@vanilla-extract/css';
-import { sprinkles } from '~/style/sprinkles.css';
 
 export const root = style([
-  sprinkles({
-    margin: {
-      desktop: 'auto',
-      mobile: 'xlarge',
-      tablet: 'medium',
-    },
-  }),
   {
+    paddingLeft: '2.5rem',
+    paddingRight: '2.5rem',
+    margin: 'auto',
     maxWidth: '60rem',
   },
 ]);
