@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "The monorepo containing a fair chunk of my site",
   "scripts": {
-    "start": "pm2 start ecosystem.config.js",
-    "stop": "pm2 stop ecosystem.config.js",
-    "logs": "pm2 logs"
+    "start": "concurrently 'npm run dev --workspace www' 'npm run dev --workspace api' -n www,api"
   },
   "workspaces": [
     "packages/*"
@@ -21,9 +19,9 @@
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/parser": "^8.3.0",
+    "concurrently": "^8.2.2",
     "eslint": "^9.9.1",
     "eslint-import-resolver-typescript": "^3.6.3",
-    "eslint-plugin-react": "^7.35.0",
-    "pm2": "^5.4.2"
+    "eslint-plugin-react": "^7.35.0"
   }
 }

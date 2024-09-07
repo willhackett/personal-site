@@ -18,14 +18,15 @@ npm install
 2. Run
 
 ```sh
-npm run start
+npm start
 ```
 
-This project uses `pm2` so you can use `npm run start`, `npm run stop` and `npm run logs`.
+This project uses `concurrently` to execute the `dev` script in both the `api` and `www` packages.
 
-Local development "usually" runs at: 
- - www: `http://localhost:5173/`
- - api: `http://localhost:53063` or sometimes any port it feels like (check logs)
+Assuming the typical ports are available, you can access the following:
+
+- www: `http://localhost:5173/`
+- api: `http://localhost:8787/`
 
 ## Typegen
 
@@ -40,3 +41,7 @@ Generate types for your GraphQL queries in packages/www using:
 ```sh
 npm run codegen
 ```
+
+## Wrangler
+
+The `wrangler.toml` variables are set to my personal account. If you wish to attempt deploying this project, you'll need to update the KV namespace bindings.
