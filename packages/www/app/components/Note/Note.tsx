@@ -14,7 +14,7 @@ export function Note({ note }: NoteProps): JSX.Element {
         <h3 className={css.title}>{note.title}</h3>
         <time>{note.date}</time>
       </a>
-      <p>{note.summary}</p>
+      <p dangerouslySetInnerHTML={{ __html: note.summary }} />
     </article>
   );
 }
